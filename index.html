@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sreya Srinidhi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF7F2;
+      --ink: #1A1714;
+      --warm-mid: #5C4F3A;
+      --accent: #B85C38;
+      --accent-light: #E8C4B0;
+      --rule: #D6CEBF;
+      --card-bg: #FFFFFF;
+      --tag-bg: #F0EBE3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 max(2rem, 5vw);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .topbar-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .topbar-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .topbar-nav a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      transition: color 0.2s;
+    }
+    .topbar-nav a:hover { color: var(--accent); }
+
+    /* ── MAIN WRAPPER ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem max(1.5rem, 4vw) 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* ── CARD BASE ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 2rem 2.2rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.12s; }
+    .card:nth-child(3) { animation-delay: 0.19s; }
+    .card:nth-child(4) { animation-delay: 0.26s; }
+    .card:nth-child(5) { animation-delay: 0.33s; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ══════════════════════════════
+       HERO CARD
+    ══════════════════════════════ */
+    .hero-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 1px solid var(--accent-light);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 3px;
+      display: block;
+    }
+    /* Placeholder shown when no photo supplied */
+    .hero-photo-placeholder {
+      width: 160px;
+      height: 160px;
+      background: var(--tag-bg);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rule);
+    }
+    .hero-photo-placeholder svg { width: 48px; height: 48px; }
+
+    .hero-info-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .hero-title {
+      font-size: 0.9rem;
+      color: var(--warm-mid);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1.1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .hero-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.84rem;
+      color: var(--warm-mid);
+    }
+    .hero-meta-row svg {
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    .hero-meta-row a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-meta-row a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent-light);
+    }
+
+    /* ══════════════════════════════
+       BIOGRAPHY CARD
+    ══════════════════════════════ */
+    .bio-text {
+      font-size: 0.95rem;
+      color: #3A342A;
+      line-height: 1.85;
+    }
+    .bio-text strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════
+       EXPERIENCE / RESEARCH CARD
+    ══════════════════════════════ */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; }
+
+    .tl-date {
+      font-size: 0.78rem;
+      color: var(--warm-mid);
+      padding-top: 0.1rem;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .tl-body {}
+    .tl-role {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 0.15rem;
+    }
+    .tl-org {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 0.45rem;
+    }
+    .tl-desc {
+      font-size: 0.85rem;
+      color: #4A4035;
+      line-height: 1.75;
+    }
+
+    .tl-divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: var(--rule);
+      opacity: 0.6;
+    }
+
+    /* ══════════════════════════════
+       PROJECTS CARD
+    ══════════════════════════════ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .project-tile {
+      display: block;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 1.1rem 1.2rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .project-tile:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 4px 20px rgba(184,92,56,0.08);
+      transform: translateY(-2px);
+    }
+    .project-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .project-period {
+      font-size: 0.73rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .project-desc {
+      font-size: 0.82rem;
+      color: #4A4035;
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════
+       EXTRAS CARD (Awards, Skills, etc.)
+    ══════════════════════════════ */
+    .extras-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+    }
+    .extras-col-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .extras-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .extras-list li {
+      font-size: 0.84rem;
+      color: #3A342A;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+    .extras-list li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* Skills tags */
+    .skills-section { margin-top: 0.5rem; }
+    .skill-group { margin-bottom: 1rem; }
+    .skill-group-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 0.45rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.78rem;
+      color: var(--warm-mid);
+      letter-spacing: 0.02em;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: #A89880;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .hero-card { grid-template-columns: 1fr; justify-items: start; }
+      .hero-photo, .hero-photo-placeholder { width: 110px; height: 110px; }
+      .hero-name { font-size: 2rem; }
+      .projects-grid, .extras-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 1fr; }
+      .tl-date { text-align: left; }
+      .topbar-nav { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <header class="topbar">
+    <a href="#" class="topbar-name">Sreya Srinidhi</a>
+    <nav>
+      <ul class="topbar-nav">
+        <li><a href="#bio">About</a></li>
+        <li><a href="#experience">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#extras">More</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+
+    <!-- ══ HERO ══ -->
+    <section class="card hero-card" id="top">
+      <div class="hero-photo-wrap">
+        <!-- Replace the placeholder below with an <img> tag once you have a photo:
+             <img src="photo.jpg" alt="Sreya Srinidhi" class="hero-photo" />
+             Delete the placeholder div when done. -->
+        <div class="hero-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero-info">
+        <p class="hero-info-label">Personal Details</p>
+        <h1 class="hero-name">Sreya<br>Srinidhi</h1>
+        <p class="hero-title">M.S. Computer Science · Case Western Reserve University, 2027</p>
+        <div class="hero-meta">
+          <div class="hero-meta-row">
+            <!-- university icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 3v18"/>
+            </svg>
+            Dept. of CSDS, Case Western Reserve University
+          </div>
+          <div class="hero-meta-row">
+            <!-- email icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+            </svg>
+            <a href="mailto:sreyaksrinidhi@gmail.com">sreyaksrinidhi@gmail.com</a>
+          </div>
+          <div class="hero-meta-row">
+            <!-- linkedin icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="3"/>
+              <path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 5 2v3"/>
+            </svg>
+            <a href="https://linkedin.com/in/sreya-srinidhi" target="_blank" rel="noopener">linkedin.com/in/sreya-srinidhi</a>
+          </div>
+          <div class="hero-meta-row">
+            <!-- github icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            <a href="https://github.com/sreya-srinidhi" target="_blank" rel="noopener">github.com/sreya-srinidhi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BIOGRAPHY ══ -->
+    <section class="card" id="bio">
+      <p class="section-label">Biography</p>
+      <p class="bio-text">
+        I'm a <strong>Master's student in Computer Science</strong> at Case Western Reserve University (GPA 4.0), 
+        pursuing an AI focus with an early-stage thesis in <strong>multimodal machine learning</strong> at the 
+        VULab under Dr. Yu Yin. My research sits at the intersection of computer vision and representation 
+        learning — currently exploring Gaussian splatting–based representations for scene segmentation.
+      </p>
+      <br>
+      <p class="bio-text">
+        Alongside my thesis I evaluate <strong>out-of-distribution detection models</strong> on financial 
+        time-series data with Dr. Vipin Chaudhary's group. Previously, I interned at 
+        <strong>Publicis Sapient</strong> building an AI-assisted automotive chatbot with LangChain/LangGraph, 
+        and at <strong>Ubihere</strong> researching multi-scene person re-identification.
+      </p>
+      <br>
+      <p class="bio-text">
+        Outside research I lead the <strong>CWRU competitive badminton team</strong> (advancing it from 
+        Division 3 to Division 1 in two years) and serve as Vice President of the 
+        <strong>Tau Beta Pi Ohio Alpha Chapter</strong>. I hold an FAA Part 107 Remote Pilot License and 
+        a Veale Snyder Entrepreneurship Fellowship.
+      </p>
+    </section>
+
+    <!-- ══ EXPERIENCE (RESEARCH + INDUSTRY) ══ -->
+    <section class="card" id="experience">
+      <p class="section-label">Experience</p>
+      <div class="timeline">
+
+        <!-- Research -->
+        <div class="tl-item">
+          <div class="tl-date">Dec 2025 –<br>present</div>
+          <div class="tl-body">
+            <div class="tl-role">Master's Thesis — Multimodal Machine Learning</div>
+            <div class="tl-org">VULab · Case Western Reserve University</div>
+            <div class="tl-desc">Early-stage vision-centric thesis using Gaussian splatting–based representations for scene segmentation. Advised by Dr. Yu Yin, Dept. of Computer and Data Sciences.</div>
+            <div class="skill-tags" style="margin-top:0.65rem;">
+              <span class="tag">PyTorch</span><span class="tag">Gaussian Splatting</span><span class="tag">Computer Vision</span><span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">Aug 2025 –<br>present</div>
+          <div class="tl-body">
+            <div class="tl-role">OOD Detection for Financial Applications</div>
+            <div class="tl-org">quant@CWRU · Case Western Reserve University</div>
+            <div class="tl-desc">Evaluating state-of-the-art OOD detection models (Forte) on financial time-series data, with initial focus on fraud detection. Advised by Dr. Vipin Chaudhary.</div>
+            <div class="skill-tags" style="margin-top:0.65rem;">
+              <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OOD Detection</span><span class="tag">Python</span><span class="tag">SQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <!-- Industry -->
+        <div class="tl-item">
+          <div class="tl-date">Jun–Aug 2025</div>
+          <div class="tl-body">
+            <div class="tl-role">Software Engineering Intern</div>
+            <div class="tl-org">Publicis Sapient</div>
+            <div class="tl-desc">Built an AI-assisted web application for automotive battery selection. Designed and implemented a conversational chatbot; independently learned LangChain and LangGraph to structure, test, and debug the Q&A flow.</div>
+            <div class="skill-tags" style="margin-top:0.65rem;">
+              <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">May 2024 –<br>Apr 2025</div>
+          <div class="tl-body">
+            <div class="tl-role">Machine Learning Intern</div>
+            <div class="tl-org">Ubihere</div>
+            <div class="tl-desc">Analyzed BPBReID body-part embeddings to study clustering behavior, built a multi-scene person re-identification pipeline using YOLO detections and identity association across frames, and investigated failure modes from threshold-based assignment.</div>
+            <div class="skill-tags" style="margin-top:0.65rem;">
+              <span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">Aug 2023 –<br>May 2024</div>
+          <div class="tl-body">
+            <div class="tl-role">Student Technician</div>
+            <div class="tl-org">Sears Think[Box] · Case Western Reserve University</div>
+            <div class="tl-desc">Led hands-on training and real-time troubleshooting for makerspace users on 3D printers, laser cutters, and 3D scanners.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ PROJECTS ══ -->
+    <section class="card" id="projects">
+      <p class="section-label">Projects</p>
+      <div class="projects-grid">
+
+        <!-- PROJECT LINK 1: Replace the # below with your GitHub repo URL for Super Resolution -->
+        <a href="#" target="_blank" rel="noopener" class="project-tile">
+          <div class="project-period">Oct – Dec 2025</div>
+          <div class="project-title">Super Resolution via 2D Gaussian Splatting</div>
+          <div class="project-desc">Hybrid arbitrary-scale super-resolution framework combining local specialization from Gaussian Splatting with global generalization via ContinuousSR's Deep Gaussian Prior. Achieved higher PSNR than bicubic interpolation and recent Gaussian SR baselines.</div>
+          <div class="skill-tags" style="margin-top:0.65rem;">
+            <span class="tag">PyTorch</span><span class="tag">Gaussian Splatting</span><span class="tag">Python</span>
+          </div>
+        </a>
+
+        <!-- PROJECT LINK 2: Replace the # below with your GitHub repo URL for Nuisance Variables -->
+        <a href="#" target="_blank" rel="noopener" class="project-tile">
+          <div class="project-period">Sep – Dec 2025</div>
+          <div class="project-title">Reintroduction of Nuisance Variables for Image Reconstruction</div>
+          <div class="project-desc">Exploratory study developing a Dual-SAL framework — SAL-based minimal encoder + nuisance estimator + generative decoder — for controlled image reconstruction from minimally sufficient representations.</div>
+          <div class="skill-tags" style="margin-top:0.65rem;">
+            <span class="tag">PyTorch</span><span class="tag">Python</span><span class="tag">Computer Vision</span>
+          </div>
+        </a>
+
+        <!-- PROJECT LINK 3: Replace the # below with your GitHub repo URL for Lung Cancer -->
+        <a href="#" target="_blank" rel="noopener" class="project-tile">
+          <div class="project-period">Feb – May 2025</div>
+          <div class="project-title">Lung Cancer Prediction from Gene Expression</div>
+          <div class="project-desc">Exploratory modeling on TCGA-LUAD gene expression data using ICA, manifold learning, and clustering to analyze latent structure. Achieved 88% classification accuracy.</div>
+          <div class="skill-tags" style="margin-top:0.65rem;">
+            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">SQL</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ══ AWARDS / EXTRACURRICULARS ══ -->
+    <section class="card" id="extras">
+      <p class="section-label">Awards · Clubs · Extracurriculars</p>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-date">2025</div>
+          <div class="tl-body">
+            <div class="tl-role">Vice President, Tau Beta Pi — Ohio Alpha Chapter</div>
+            <div class="tl-org">Case Western Reserve University</div>
+            <div class="tl-desc">Organized professional, networking, and initiation events; represented the chapter at the national conference; coordinating hosting of the district conference (~500 attendees).</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">2023 –<br>present</div>
+          <div class="tl-body">
+            <div class="tl-role">Competitive Badminton Team Captain</div>
+            <div class="tl-org">Case Western Reserve University</div>
+            <div class="tl-desc">Captain of a 25-member competitive team. Led advancement from Division 3 to Division 1 within two years; placed 1st in Division 3 and Division 2 intercollegiate tournaments. Manages training schedules, tournaments, and team operations.</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">2024 – 25</div>
+          <div class="tl-body">
+            <div class="tl-role">Veale Snyder Fellowship</div>
+            <div class="tl-org">Case Western Reserve University</div>
+            <div class="tl-desc">Highly selective tech entrepreneurship fellowship.</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">2024</div>
+          <div class="tl-body">
+            <div class="tl-role">Outstanding Sophomore Award</div>
+            <div class="tl-org">Case School of Engineering, CWRU</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">Aug 2024</div>
+          <div class="tl-body">
+            <div class="tl-role">FAA Part 107 Remote Pilot License</div>
+            <div class="tl-org">Federal Aviation Administration</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">Apr 2024</div>
+          <div class="tl-body">
+            <div class="tl-role">Tau Beta Pi, Engineering Honor Society</div>
+            <div class="tl-org">Ohio Alpha Chapter · inducted April 2024</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">Jan 2024</div>
+          <div class="tl-body">
+            <div class="tl-role">Rewriting the Code</div>
+            <div class="tl-org">National organization supporting women in technology</div>
+          </div>
+        </div>
+        <div class="tl-divider"></div>
+
+        <div class="tl-item">
+          <div class="tl-date">2022 – 26</div>
+          <div class="tl-body">
+            <div class="tl-role">Merit Scholarship &amp; Dean's Honors</div>
+            <div class="tl-org">Case Western Reserve University</div>
+            <div class="tl-desc">Merit Scholarship (2022–2026); Dean's High Honors List — Fall 2022, Spring 2023, Fall 2023, Fall &amp; Spring 2024; Dean's Honors List — Spring 2023.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Sreya Srinidhi · Built with HTML &amp; CSS · Hosted on GitHub Pages
+  </footer>
+
+</body>
+</html>
