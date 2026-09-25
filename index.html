@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sreya Srinidhi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sreya Srinidhi | Computer Vision &amp; Multimodal Learning</title>
+  <meta name="description" content="Sreya Srinidhi: computer vision, 3D scene understanding, multimodal perception, and computational imaging. MS student at Case Western Reserve University and researcher at Carnegie Mellon University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --cream: #FAF7F2;
@@ -402,298 +402,59 @@
       .tl-date { text-align: left; }
       .topbar-nav { gap: 1rem; }
     }
+  
+    section[id], article[id] { scroll-margin-top: 90px; }
+    .wrapper { max-width: 1040px; }
+    .hero-card { grid-template-columns: 1fr; }
+    .hero-name { font-size: clamp(2.5rem, 6vw, 4rem); }
+    .hero-title { font-style: normal; }
+    .hero-meta { flex-direction: row; flex-wrap: wrap; gap: 1rem 1.5rem; }
+    .hero-intro { max-width: 720px; margin: 1rem 0 1.2rem; font-size: 1.04rem; }
+    .research-interests { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+    .research-interests p { color: var(--warm-mid); }
+    .section-label { font-size: .78rem; }
+    .tl-role, .project-title { font-size: 1rem; }
+    .tl-desc, .project-desc { font-size: .91rem; }
+    .tl-desc p + p { margin-top: .65rem; }
+    .tl-org a, .tl-desc a { color: inherit; text-underline-offset: 3px; }
+    .timeline > .tl-item + .tl-item { padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+    .project-tile { cursor: default; }
+    .project-tile:hover { transform: none; box-shadow: none; }
+    .project-tile:first-child { grid-column: 1 / -1; }
+    .project-note { margin-top: .75rem; font-size: .8rem; color: var(--warm-mid); }
+    .skill-group-label { font-size: .78rem; }
+    .skip-link { position: absolute; left: 1rem; top: -100px; z-index: 200; padding: .5rem 1rem; background: white; color: var(--ink); }
+    .skip-link:focus { top: .5rem; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    footer { color: var(--warm-mid); }
+    @media (max-width: 760px) {
+      .topbar { height: auto; min-height: 56px; flex-wrap: wrap; gap: .5rem; padding: .8rem 1.2rem; }
+      .topbar-nav { gap: .6rem 1rem; flex-wrap: wrap; }
+      .topbar-nav a { font-size: .7rem; }
+      .card { padding: 1.5rem; }
+      .wrapper { padding: 1.5rem 1rem 3rem; gap: 1.2rem; }
+      .projects-grid, .extras-grid { grid-template-columns: 1fr; }
+      .hero-meta-row { overflow-wrap: anywhere; }
+      section[id], article[id] { scroll-margin-top: 130px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card { animation: none; }
+      * { transition: none !important; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- ── TOP BAR ── -->
-  <header class="topbar">
-    <a href="#" class="topbar-name">Sreya Srinidhi</a>
-    <nav>
-      <ul class="topbar-nav">
-        <li><a href="#bio">About</a></li>
-        <li><a href="#experience">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#extras">More</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="wrapper">
-
-    <!-- ══ HERO ══ -->
-    <section class="card hero-card" id="top">
-      <div class="hero-photo-wrap">
-        <!-- Replace the placeholder below with an <img> tag once you have a photo:
-             <img src="photo.jpg" alt="Sreya Srinidhi" class="hero-photo" />
-             Delete the placeholder div when done. -->
-        <div class="hero-photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="hero-info">
-        <p class="hero-info-label">Personal Details</p>
-        <h1 class="hero-name">Sreya<br>Srinidhi</h1>
-        <p class="hero-title">M.S. Computer Science · Case Western Reserve University, 2027</p>
-        <div class="hero-meta">
-          <div class="hero-meta-row">
-            <!-- university icon -->
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 3v18"/>
-            </svg>
-            Dept. of CSDS, Case Western Reserve University
-          </div>
-          <div class="hero-meta-row">
-            <!-- email icon -->
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
-            </svg>
-            <a href="mailto:sreyaksrinidhi@gmail.com">sreyaksrinidhi@gmail.com</a>
-          </div>
-          <div class="hero-meta-row">
-            <!-- linkedin icon -->
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="2" y="2" width="20" height="20" rx="3"/>
-              <path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 5 2v3"/>
-            </svg>
-            <a href="https://linkedin.com/in/sreya-srinidhi" target="_blank" rel="noopener">linkedin.com/in/sreya-srinidhi</a>
-          </div>
-          <div class="hero-meta-row">
-            <!-- github icon -->
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            <a href="https://github.com/sreya-srinidhi" target="_blank" rel="noopener">github.com/sreya-srinidhi</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ BIOGRAPHY ══ -->
-    <section class="card" id="bio">
-      <p class="section-label">Biography</p>
-      <p class="bio-text">
-        I'm a <strong>Master's student in Computer Science</strong> at Case Western Reserve University (GPA 4.0), 
-        pursuing an AI focus with an early-stage thesis in <strong>multimodal machine learning</strong> at the 
-        VULab under Dr. Yu Yin. My research sits at the intersection of computer vision and representation 
-        learning — currently exploring Gaussian splatting–based representations for scene segmentation.
-      </p>
-      <br>
-      <p class="bio-text">
-        Alongside my thesis I evaluate <strong>out-of-distribution detection models</strong> on financial 
-        time-series data with Dr. Vipin Chaudhary's group. Previously, I interned at 
-        <strong>Publicis Sapient</strong> building an AI-assisted automotive chatbot with LangChain/LangGraph, 
-        and at <strong>Ubihere</strong> researching multi-scene person re-identification.
-      </p>
-      <br>
-      <p class="bio-text">
-        Outside research I lead the <strong>CWRU competitive badminton team</strong> (advancing it from 
-        Division 3 to Division 1 in two years) and serve as Vice President of the 
-        <strong>Tau Beta Pi Ohio Alpha Chapter</strong>. I hold an FAA Part 107 Remote Pilot License and 
-        a Veale Snyder Entrepreneurship Fellowship.
-      </p>
-    </section>
-
-    <!-- ══ EXPERIENCE (RESEARCH + INDUSTRY) ══ -->
-    <section class="card" id="experience">
-      <p class="section-label">Experience</p>
-      <div class="timeline">
-
-        <!-- Research -->
-        <div class="tl-item">
-          <div class="tl-date">Dec 2025 –<br>present</div>
-          <div class="tl-body">
-            <div class="tl-role">Master's Thesis — Multimodal Machine Learning</div>
-            <div class="tl-org">VULab · Case Western Reserve University</div>
-            <div class="tl-desc">Early-stage vision-centric thesis using Gaussian splatting–based representations for scene segmentation. Advised by Dr. Yu Yin, Dept. of Computer and Data Sciences.</div>
-            <div class="skill-tags" style="margin-top:0.65rem;">
-              <span class="tag">PyTorch</span><span class="tag">Gaussian Splatting</span><span class="tag">Computer Vision</span><span class="tag">Python</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">Aug 2025 –<br>present</div>
-          <div class="tl-body">
-            <div class="tl-role">OOD Detection for Financial Applications</div>
-            <div class="tl-org">quant@CWRU · Case Western Reserve University</div>
-            <div class="tl-desc">Evaluating state-of-the-art OOD detection models (Forte) on financial time-series data, with initial focus on fraud detection. Advised by Dr. Vipin Chaudhary.</div>
-            <div class="skill-tags" style="margin-top:0.65rem;">
-              <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OOD Detection</span><span class="tag">Python</span><span class="tag">SQL</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <!-- Industry -->
-        <div class="tl-item">
-          <div class="tl-date">Jun–Aug 2025</div>
-          <div class="tl-body">
-            <div class="tl-role">Software Engineering Intern</div>
-            <div class="tl-org">Publicis Sapient</div>
-            <div class="tl-desc">Built an AI-assisted web application for automotive battery selection. Designed and implemented a conversational chatbot; independently learned LangChain and LangGraph to structure, test, and debug the Q&A flow.</div>
-            <div class="skill-tags" style="margin-top:0.65rem;">
-              <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">Node.js</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">May 2024 –<br>Apr 2025</div>
-          <div class="tl-body">
-            <div class="tl-role">Machine Learning Intern</div>
-            <div class="tl-org">Ubihere</div>
-            <div class="tl-desc">Analyzed BPBReID body-part embeddings to study clustering behavior, built a multi-scene person re-identification pipeline using YOLO detections and identity association across frames, and investigated failure modes from threshold-based assignment.</div>
-            <div class="skill-tags" style="margin-top:0.65rem;">
-              <span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Git</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">Aug 2023 –<br>May 2024</div>
-          <div class="tl-body">
-            <div class="tl-role">Student Technician</div>
-            <div class="tl-org">Sears Think[Box] · Case Western Reserve University</div>
-            <div class="tl-desc">Led hands-on training and real-time troubleshooting for makerspace users on 3D printers, laser cutters, and 3D scanners.</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══ PROJECTS ══ -->
-    <section class="card" id="projects">
-      <p class="section-label">Projects</p>
-      <div class="projects-grid">
-
-        <!-- PROJECT LINK 1: Replace the # below with your GitHub repo URL for Super Resolution -->
-        <a href="#" target="_blank" rel="noopener" class="project-tile">
-          <div class="project-period">Oct – Dec 2025</div>
-          <div class="project-title">Super Resolution via 2D Gaussian Splatting</div>
-          <div class="project-desc">Hybrid arbitrary-scale super-resolution framework combining local specialization from Gaussian Splatting with global generalization via ContinuousSR's Deep Gaussian Prior. Achieved higher PSNR than bicubic interpolation and recent Gaussian SR baselines.</div>
-          <div class="skill-tags" style="margin-top:0.65rem;">
-            <span class="tag">PyTorch</span><span class="tag">Gaussian Splatting</span><span class="tag">Python</span>
-          </div>
-        </a>
-
-        <!-- PROJECT LINK 2: Replace the # below with your GitHub repo URL for Nuisance Variables -->
-        <a href="#" target="_blank" rel="noopener" class="project-tile">
-          <div class="project-period">Sep – Dec 2025</div>
-          <div class="project-title">Reintroduction of Nuisance Variables for Image Reconstruction</div>
-          <div class="project-desc">Exploratory study developing a Dual-SAL framework — SAL-based minimal encoder + nuisance estimator + generative decoder — for controlled image reconstruction from minimally sufficient representations.</div>
-          <div class="skill-tags" style="margin-top:0.65rem;">
-            <span class="tag">PyTorch</span><span class="tag">Python</span><span class="tag">Computer Vision</span>
-          </div>
-        </a>
-
-        <!-- PROJECT LINK 3: Replace the # below with your GitHub repo URL for Lung Cancer -->
-        <a href="#" target="_blank" rel="noopener" class="project-tile">
-          <div class="project-period">Feb – May 2025</div>
-          <div class="project-title">Lung Cancer Prediction from Gene Expression</div>
-          <div class="project-desc">Exploratory modeling on TCGA-LUAD gene expression data using ICA, manifold learning, and clustering to analyze latent structure. Achieved 88% classification accuracy.</div>
-          <div class="skill-tags" style="margin-top:0.65rem;">
-            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">SQL</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- ══ AWARDS / EXTRACURRICULARS ══ -->
-    <section class="card" id="extras">
-      <p class="section-label">Awards · Clubs · Extracurriculars</p>
-      <div class="timeline">
-
-        <div class="tl-item">
-          <div class="tl-date">2025</div>
-          <div class="tl-body">
-            <div class="tl-role">Vice President, Tau Beta Pi — Ohio Alpha Chapter</div>
-            <div class="tl-org">Case Western Reserve University</div>
-            <div class="tl-desc">Organized professional, networking, and initiation events; represented the chapter at the national conference; coordinating hosting of the district conference (~500 attendees).</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">2023 –<br>present</div>
-          <div class="tl-body">
-            <div class="tl-role">Competitive Badminton Team Captain</div>
-            <div class="tl-org">Case Western Reserve University</div>
-            <div class="tl-desc">Captain of a 25-member competitive team. Led advancement from Division 3 to Division 1 within two years; placed 1st in Division 3 and Division 2 intercollegiate tournaments. Manages training schedules, tournaments, and team operations.</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">2024 – 25</div>
-          <div class="tl-body">
-            <div class="tl-role">Veale Snyder Fellowship</div>
-            <div class="tl-org">Case Western Reserve University</div>
-            <div class="tl-desc">Highly selective tech entrepreneurship fellowship.</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">2024</div>
-          <div class="tl-body">
-            <div class="tl-role">Outstanding Sophomore Award</div>
-            <div class="tl-org">Case School of Engineering, CWRU</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">Aug 2024</div>
-          <div class="tl-body">
-            <div class="tl-role">FAA Part 107 Remote Pilot License</div>
-            <div class="tl-org">Federal Aviation Administration</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">Apr 2024</div>
-          <div class="tl-body">
-            <div class="tl-role">Tau Beta Pi, Engineering Honor Society</div>
-            <div class="tl-org">Ohio Alpha Chapter · inducted April 2024</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">Jan 2024</div>
-          <div class="tl-body">
-            <div class="tl-role">Rewriting the Code</div>
-            <div class="tl-org">National organization supporting women in technology</div>
-          </div>
-        </div>
-        <div class="tl-divider"></div>
-
-        <div class="tl-item">
-          <div class="tl-date">2022 – 26</div>
-          <div class="tl-body">
-            <div class="tl-role">Merit Scholarship &amp; Dean's Honors</div>
-            <div class="tl-org">Case Western Reserve University</div>
-            <div class="tl-desc">Merit Scholarship (2022–2026); Dean's High Honors List — Fall 2022, Spring 2023, Fall 2023, Fall &amp; Spring 2024; Dean's Honors List — Spring 2023.</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 Sreya Srinidhi · Built with HTML &amp; CSS · Hosted on GitHub Pages
-  </footer>
-
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar"><a href="#top" class="topbar-name">Sreya Srinidhi</a><nav aria-label="Main navigation"><ul class="topbar-nav">
+<li><a href="#experience">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a href="#industry">Industry</a></li><li><a href="#extras">More</a></li></ul></nav></header>
+<main class="wrapper" id="main">
+<section class="card hero-card" id="top" aria-labelledby="name"><div class="hero-info">
+<p class="hero-info-label">Computer vision · Multimodal perception</p><h1 class="hero-name" id="name">Sreya Srinidhi</h1>
+<p class="hero-title">M.S. student in Computer Science · Case Western Reserve University</p>
+<p class="hero-intro">I study how sensory observations can become useful representations of the physical world. My work brings together geometry, physical priors, and learning for scene understanding.</p>
+<div class="hero-meta"><div class="hero-meta-row"><a href="mailto:sreyaksrinidhi@gmail.com">Email</a></div><div class="hero-meta-row"><a href="https://github.com/Sreya-Srinidhi">GitHub</a></div><div class="hero-meta-row"><a href="https://www.linkedin.com/in/sreya-srinidhi/">LinkedIn</a></div></div>
+<div class="research-interests"><h2 class="skill-group-label">Research interests</h2><p>Computer vision, 3D scene understanding, multimodal perception, computational imaging, and physically grounded representation learning.</p></div>
+</div></section>
+<section class="card" id="bio" aria-labelledby="bio-title"><h2 class="section-label" id="bio-title">About</h2><p class="bio-text">I’m completing my master’s thesis in <strong>VULab at CWRU</strong>, advised by <a href="https://yin-yu.github.io/">Yu Yin</a>, and working with <a href="https://www.cs.cmu.edu/~motoole2/">Matthew O’Toole</a> in the <strong>Computational Imaging Group at Carnegie Mellon University</strong>. My thesis connects object-aware 3D reconstruction with an original audio-visual extension that I am implementing for acoustic synthesis.</p><p class="bio-text" style="margin-top:1rem">I’m interested in multimodal learning broadly. Audio is the modality I’m currently investigating alongside vision, within a wider interest in representations of the physical world.</p></section><section class="card" id="experience" aria-labelledby="experience-title"><h2 class="section-label" id="experience-title">Research experience</h2><div class="timeline"><article class="tl-item"><div class="tl-date">May 2026–present</div><div class="tl-body"><h3 class="tl-role">Computational Imaging &amp; Computer Vision Research</h3><div class="tl-org">Computational Imaging Group · Robotics Institute, Carnegie Mellon University</div><div class="tl-desc"><p>Built a low-cost multi-camera data collection framework for dynamic 3D reconstruction using OV3660 cameras and ESP32-S3 boards. Programmed camera firmware to tune resolution, timing, exposure, and capture settings, and investigated frame drops, audio sample drops, and clock drift. Conducted audio-based synchronization experiments to study alignment of asynchronous camera streams.</p><p>Advisor: <a href="https://www.cs.cmu.edu/~motoole2/">Matthew O’Toole</a></p></div></div></article><article class="tl-item"><div class="tl-date">Dec 2025–present</div><div class="tl-body"><h3 class="tl-role">Master’s Thesis in Multimodal Machine Learning</h3><div class="tl-org">VULab · Case Western Reserve University</div><div class="tl-desc"><p>Developed an object-aware 3D Gaussian scene segmentation framework that assigns object identities to Gaussians during reconstruction, enabling cleaner open-vocabulary object selection in reconstructed scenes. Modified reconstruction losses to reduce noisy Gaussian assignments and improve segmentation quality.</p><p>Independently proposed and am implementing an audio-visual extension for novel-view acoustic synthesis, using an explicit acoustic representation tied to scene geometry, object identity, and material properties.</p><p>Advisor: <a href="https://yin-yu.github.io/">Yu Yin</a></p></div></div></article><article class="tl-item" id="ubihere"><div class="tl-date">May 2024–Apr 2025</div><div class="tl-body"><h3 class="tl-role">Person Re-identification Across Camera Frames</h3><div class="tl-org">Ubihere · Machine Learning Intern</div><div class="tl-desc"><p>Analyzed body-part-based re-identification embeddings (BPBReID) to study clustering behavior by identity versus body part. Built a multi-scene person re-identification pipeline using YOLO detections and identity association across frames, and investigated threshold-based assignment failures, overfitting, and misclassification of unseen identities.</p><p>The summer internship extended into the academic year.</p></div></div></article><article class="tl-item"><div class="tl-date">Nov 2023–Apr 2024</div><div class="tl-body"><h3 class="tl-role">Research Assistant</h3><div class="tl-org">ERIE Labs · Case Western Reserve University</div><div class="tl-desc"><p>Developed a conditional GAN pipeline for predicting and generating surgeon eye-gaze direction in robotic surgery.</p><p>Advisor: <a href="https://zonghe-chua.github.io/">Zonghe Chua</a></p></div></div></article><article class="tl-item"><div class="tl-date">Feb 2023–Jan 2024</div><div class="tl-body"><h3 class="tl-role">Research Assistant</h3><div class="tl-org">AVIA Labs · Case Western Reserve University</div><div class="tl-desc"><p>Applied machine-learning methods to acoustic features for vocal pathology detection; designed an IRB protocol for voice-sample collection.</p><p>Advisor: <a href="https://scholar.google.com/citations?user=YdYPso8AAAAJ&amp;hl=en">Colin Drummond</a></p></div></div></article></div></section><section class="card" id="projects" aria-labelledby="projects-title"><h2 class="section-label" id="projects-title">Research projects</h2><div class="projects-grid"><article class="project-tile"><p class="project-period">Sep 2025–May 2026</p><h3 class="project-title">Reintroducing Nuisance Variables for Image Reconstruction</h3><p class="project-desc">Developed a Dual-SAL framework to study whether nuisance variables removed from minimally sufficient visual representations can be deliberately reintroduced for controlled image reconstruction. Built a SAL-based encoder, nuisance estimator, and generative decoder, investigating viewpoint and lighting. Explored homomorphic illumination–reflectance separation, geometry-inspired filtering, and denoising-style generative modeling. Identified limitations in treating lighting as frequency-separable illumination or additive corruption, motivating physically grounded representation learning.</p><p class="project-note">Exploratory research · Representation learning · Image reconstruction</p></article><article class="project-tile"><p class="project-period">Oct–Dec 2025</p><h3 class="project-title">SelectiveSR: Super Resolution Using 2D Gaussian Splatting</h3><p class="project-desc">Developed a hybrid arbitrary-scale super-resolution framework combining local specialization from Gaussian Splatting with global generalization via ContinuousSR’s Deep Gaussian Prior, achieving higher PSNR than bicubic interpolation and recent Gaussian SR baselines.</p><p class="project-note">Group project with Gautam Kakadiya and Alan Luo</p></article><article class="project-tile"><p class="project-period">Feb–May 2025</p><h3 class="project-title">Lung Cancer Prediction from Gene Expression</h3><p class="project-desc">Conducted exploratory modeling on TCGA-LUAD gene expression data using ICA, manifold learning, and clustering to analyze latent structure, achieving 88% classification accuracy.</p><p class="project-note">Exploratory modeling · Gene expression</p></article></div></section><section class="card" id="education" aria-labelledby="education-title"><h2 class="section-label" id="education-title">Education</h2><div class="timeline"><article class="tl-item"><div class="tl-date">2025–present</div><div class="tl-body"><h3 class="tl-role">Master of Science, Computer Science</h3><div class="tl-org">Case Western Reserve University · Cleveland, Ohio</div><div class="tl-desc">GPA: 4.0/4.0 · Expected graduation: December 2026.<br>Focus: 3D scene understanding and multimodal perception; thesis in 3D Gaussian scene segmentation and acoustic perception in reconstructed scenes.</div></div></article><article class="tl-item"><div class="tl-date">2022–2026</div><div class="tl-body"><h3 class="tl-role">Bachelor of Science, Computer Science</h3><div class="tl-org">Case Western Reserve University · Cleveland, Ohio</div><div class="tl-desc">GPA: 3.88/4.0 · Cum laude.<br>AI concentration; minors in Mathematics and Entrepreneurship.</div></div></article></div></section><section class="card" id="industry" aria-labelledby="industry-title"><h2 class="section-label" id="industry-title">Industry experience</h2><div class="timeline"><article class="tl-item"><div class="tl-date">Jun–Aug 2025</div><div class="tl-body"><h3 class="tl-role">Software Engineering Intern</h3><div class="tl-org">Publicis Sapient</div><div class="tl-desc">Developed an AI-assisted web application for automotive battery selection. Designed and implemented a conversational chatbot, independently learning LangChain and LangGraph to structure, test, and debug the question-and-answer flow.</div></div></article><article class="tl-item"><div class="tl-date">May 2024–Apr 2025</div><div class="tl-body"><h3 class="tl-role">Machine Learning Intern</h3><div class="tl-org">Ubihere</div><div class="tl-desc">Summer internship extended into the academic year for continued work on person re-identification. <a href="#ubihere">Read about the research.</a></div></div></article><article class="tl-item"><div class="tl-date">Aug 2023–May 2024</div><div class="tl-body"><h3 class="tl-role">Student Technician</h3><div class="tl-org">Sears Think[box] · Case Western Reserve University</div><div class="tl-desc">Led hands-on training and provided real-time troubleshooting support for makerspace users, guiding projects involving 3D printers, laser cutters, and 3D scanners.</div></div></article></div></section><section class="card" id="extras" aria-labelledby="extras-title"><h2 class="section-label" id="extras-title">Leadership &amp; community</h2><div class="timeline"><article class="tl-item"><div class="tl-date">2025–2026</div><div class="tl-body"><h3 class="tl-role">Vice President, Tau Beta Pi</h3><div class="tl-org">Ohio Alpha Chapter · Case Western Reserve University</div><div class="tl-desc">Organized professional, networking, and initiation events; represented the chapter as a voting delegate at the national convention in New Mexico; helped organize and host the district convention at CWRU for approximately 150–200 attendees.</div></div></article><article class="tl-item"><div class="tl-date">2023–2026</div><div class="tl-body"><h3 class="tl-role">Competitive Badminton Team Leadership</h3><div class="tl-org">Case Western Reserve University</div><div class="tl-desc">Served one year on the executive board and two years as captain, building a 25-member competitive team from a small initial group. Led advancement from Division 3 to Division 1 within two years, with first-place finishes in Division 3 and Division 2 intercollegiate tournaments. Organized training and competition travel, coordinated lodging and rental vehicles, and managed unexpected travel disruptions and incident response. Before university, I played badminton semiprofessionally.</div></div></article></div></section><section class="card" id="awards" aria-labelledby="awards-title"><h2 class="section-label" id="awards-title">Awards &amp; honors</h2><div class="timeline"><article class="tl-item"><div class="tl-date">2022–2026</div><div class="tl-body"><h3 class="tl-role">Merit Scholarship</h3><div class="tl-org">Case Western Reserve University</div><div class="tl-desc"></div></div></article><article class="tl-item"><div class="tl-date">2024–2025</div><div class="tl-body"><h3 class="tl-role">Veale Snyder Fellowship</h3><div class="tl-org">Highly selective tech entrepreneurship fellowship</div><div class="tl-desc"></div></div></article><article class="tl-item"><div class="tl-date">2024</div><div class="tl-body"><h3 class="tl-role">Outstanding Sophomore Award</h3><div class="tl-org">Case School of Engineering</div><div class="tl-desc"></div></div></article><article class="tl-item"><div class="tl-date">2022–2026</div><div class="tl-body"><h3 class="tl-role">Dean’s High Honors List</h3><div class="tl-org">Case Western Reserve University</div><div class="tl-desc">Fall 2022, Spring 2023, Fall 2023, Fall 2024, Spring 2025, Fall 2025, Spring 2026.</div></div></article><article class="tl-item"><div class="tl-date">Spring 2024</div><div class="tl-body"><h3 class="tl-role">Dean’s Honors List</h3><div class="tl-org">Case Western Reserve University</div><div class="tl-desc"></div></div></article></div></section><section class="card" id="affiliations" aria-labelledby="affiliations-title"><h2 class="section-label" id="affiliations-title">Certification &amp; affiliations</h2><div class="timeline"><article class="tl-item"><div class="tl-date">Aug 2024</div><div class="tl-body"><h3 class="tl-role">FAA Part 107 Remote Pilot Certification</h3><div class="tl-org">Federal Aviation Administration</div><div class="tl-desc"></div></div></article><article class="tl-item"><div class="tl-date">Apr 2024</div><div class="tl-body"><h3 class="tl-role">Tau Beta Pi</h3><div class="tl-org">Engineering Honor Society · Ohio Alpha Chapter</div><div class="tl-desc">Inducted April 2024.</div></div></article><article class="tl-item"><div class="tl-date">Jan 2024</div><div class="tl-body"><h3 class="tl-role">Rewriting the Code</h3><div class="tl-org">National organization supporting women in technology</div><div class="tl-desc"></div></div></article></div></section><section class="card" id="skills" aria-labelledby="skills-title"><h2 class="section-label" id="skills-title">Technical skills</h2><div class="skill-group"><h3 class="skill-group-label">Languages</h3><div class="skill-tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">MIPS Assembly</span><span class="tag">Verilog</span><span class="tag">HTML/CSS</span></div></div><div class="skill-group"><h3 class="skill-group-label">Frameworks</h3><div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">LangChain</span><span class="tag">LangGraph</span></div></div><div class="skill-group"><h3 class="skill-group-label">Methods &amp; tools</h3><div class="skill-tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">NeRF</span><span class="tag">3D reconstruction</span><span class="tag">COLMAP</span><span class="tag">YOLO</span><span class="tag">Segment Anything (SAM)</span><span class="tag">GANs</span><span class="tag">Diffusion models</span></div></div><div class="skill-group"><h3 class="skill-group-label">Systems</h3><div class="skill-tags"><span class="tag">CUDA</span><span class="tag">ESP32</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">GitHub</span></div></div><div class="skill-group"><h3 class="skill-group-label">Web &amp; databases</h3><div class="skill-tags"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">Bootstrap</span></div></div></section></main><footer>© 2026 Sreya Srinidhi · Updated September 2026</footer>
+</body></html>
